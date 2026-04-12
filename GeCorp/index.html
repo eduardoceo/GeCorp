@@ -1,0 +1,1724 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Ge Corp — Fisioterapia Domiciliar em Joinville</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --blue: #1D4ED8;
+      --blue-light: #3B82F6;
+      --blue-vivid: #2563EB;
+      --blue-pale: #EFF6FF;
+      --blue-soft: #DBEAFE;
+      --blue-mid: #BFDBFE;
+      --white: #FFFFFF;
+      --gray-light: #F8FAFC;
+      --gray-mid: #E2E8F0;
+      --gray-text: #64748B;
+      --dark: #1E293B;
+      --dark-soft: #334155;
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: 'Inter', sans-serif;
+      background: var(--white);
+      color: var(--dark);
+      overflow-x: hidden;
+    }
+
+    /* ── NAV ── */
+    nav {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      z-index: 100;
+      padding: 20px 60px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      background: rgba(255,255,255,0.85);
+      backdrop-filter: blur(20px);
+      -webkit-backdrop-filter: blur(20px);
+      border-bottom: 1px solid rgba(29,78,216,0.08);
+    }
+
+    .nav-logo {
+      font-size: 1.5rem;
+      font-weight: 900;
+      color: var(--dark);
+      letter-spacing: -0.03em;
+    }
+    .nav-logo span { color: var(--blue-vivid); }
+
+    .nav-links {
+      display: flex;
+      gap: 36px;
+      list-style: none;
+    }
+    .nav-links a {
+      text-decoration: none;
+      color: var(--gray-text);
+      font-size: 0.875rem;
+      font-weight: 500;
+      transition: color 0.2s;
+    }
+    .nav-links a:hover { color: var(--blue-vivid); }
+
+    .nav-cta {
+      background: var(--blue-vivid);
+      color: var(--white);
+      border: none;
+      padding: 12px 28px;
+      border-radius: 999px;
+      font-size: 0.875rem;
+      font-weight: 600;
+      cursor: pointer;
+      transition: transform 0.2s, box-shadow 0.2s;
+    }
+    .nav-cta:hover { transform: scale(1.05); box-shadow: 0 8px 32px rgba(37,99,235,0.35); }
+    .nav-cta:active { transform: scale(0.97); }
+
+    /* ── HERO ── */
+    .hero {
+      background: var(--blue-vivid);
+      background-image: url('imagens/fundo1.avif');
+      background-size: cover;
+      background-position: center;
+      background-repeat: no-repeat;
+      padding: 160px 60px 140px;
+      border-radius: 0 0 120px 40px;
+      position: relative;
+      overflow: hidden;
+    }
+    .hero::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(135deg, rgba(37,99,235,0.92) 0%, rgba(29,78,216,0.85) 60%, rgba(37,99,235,0.75) 100%);
+      z-index: 0;
+      pointer-events: none;
+    }
+    .hero > * { position: relative; z-index: 1; }
+
+    .hero-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: rgba(255,255,255,0.18);
+      border: 1px solid rgba(255,255,255,0.3);
+      border-radius: 999px;
+      padding: 8px 18px;
+      font-size: 0.75rem;
+      font-weight: 600;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--white);
+      margin-bottom: 40px;
+      backdrop-filter: blur(10px);
+    }
+    .hero-badge .dot { width: 8px; height: 8px; border-radius: 50%; background: #86EFAC; }
+
+    .hero h1 {
+      font-size: clamp(3rem, 7vw, 5.5rem);
+      font-weight: 900;
+      color: var(--white);
+      line-height: 1.04;
+      letter-spacing: -0.04em;
+      max-width: 820px;
+      margin-bottom: 28px;
+    }
+    .hero h1 em {
+      font-style: normal;
+      color: rgba(255,255,255,0.5);
+    }
+
+    .hero p {
+      font-size: 1.125rem;
+      color: rgba(255,255,255,0.85);
+      max-width: 520px;
+      line-height: 1.7;
+      margin-bottom: 48px;
+    }
+
+    .hero-actions {
+      display: flex;
+      gap: 16px;
+      flex-wrap: wrap;
+    }
+
+    .btn-primary {
+      background: var(--white);
+      color: var(--blue-vivid);
+      border: none;
+      padding: 18px 40px;
+      border-radius: 999px;
+      font-size: 1rem;
+      font-weight: 700;
+      cursor: pointer;
+      transition: transform 0.2s, box-shadow 0.2s;
+      text-decoration: none;
+      display: inline-block;
+    }
+    .btn-primary:hover { transform: scale(1.05); box-shadow: 0 12px 40px rgba(0,0,0,0.2); }
+    .btn-primary:active { transform: scale(0.97); }
+
+    .btn-outline {
+      background: transparent;
+      color: var(--white);
+      border: 2px solid rgba(255,255,255,0.45);
+      padding: 18px 40px;
+      border-radius: 999px;
+      font-size: 1rem;
+      font-weight: 600;
+      cursor: pointer;
+      transition: transform 0.2s, background 0.2s;
+      text-decoration: none;
+      display: inline-block;
+    }
+    .btn-outline:hover { background: rgba(255,255,255,0.12); transform: scale(1.04); }
+
+    /* Hero floating cards */
+    .hero-float {
+      position: absolute;
+      right: 60px;
+      top: 50%;
+      transform: translateY(-50%);
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+    }
+
+    .glass-card {
+      background: rgba(255,255,255,0.14);
+      backdrop-filter: blur(24px);
+      -webkit-backdrop-filter: blur(24px);
+      border: 1px solid rgba(255,255,255,0.28);
+      border-radius: 32px;
+      padding: 28px 32px;
+      min-width: 260px;
+      box-shadow: 0 24px 60px rgba(0,0,0,0.15);
+      animation: float 4s ease-in-out infinite;
+    }
+    .glass-card:nth-child(2) { animation-delay: -2s; }
+
+    @keyframes float {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(-10px); }
+    }
+
+    .glass-card .label {
+      font-size: 0.65rem;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      color: rgba(255,255,255,0.65);
+      margin-bottom: 6px;
+    }
+    .glass-card .value {
+      font-size: 2rem;
+      font-weight: 800;
+      color: var(--white);
+      letter-spacing: -0.04em;
+    }
+    .glass-card .sub {
+      font-size: 0.78rem;
+      color: rgba(255,255,255,0.7);
+      margin-top: 4px;
+    }
+    .glass-card .pill {
+      display: inline-block;
+      background: #86EFAC;
+      color: #14532D;
+      font-size: 0.65rem;
+      font-weight: 700;
+      letter-spacing: 0.06em;
+      padding: 4px 10px;
+      border-radius: 999px;
+      margin-top: 10px;
+    }
+
+    /* ── STATS TICKER ── */
+    .ticker-section {
+      background: var(--blue-pale);
+      padding: 60px 0;
+      overflow: hidden;
+    }
+    .ticker-track {
+      display: flex;
+      gap: 80px;
+      animation: ticker 20s linear infinite;
+      white-space: nowrap;
+    }
+    @keyframes ticker {
+      0% { transform: translateX(0); }
+      100% { transform: translateX(-50%); }
+    }
+    .ticker-item {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      flex-shrink: 0;
+    }
+    .ticker-item .t-num {
+      font-size: 1.75rem;
+      font-weight: 800;
+      color: var(--blue-vivid);
+      letter-spacing: -0.04em;
+    }
+    .ticker-item .t-label {
+      font-size: 0.8rem;
+      color: var(--gray-text);
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+    }
+    .ticker-divider {
+      color: var(--blue-mid);
+      font-size: 2rem;
+    }
+
+    /* ── SERVICES ── */
+    .services {
+      background: var(--gray-light);
+      padding: 120px 60px;
+      border-radius: 80px;
+      margin: -40px 20px 0;
+    }
+
+    .section-label {
+      font-size: 0.65rem;
+      text-transform: uppercase;
+      letter-spacing: 0.15em;
+      color: var(--blue-vivid);
+      margin-bottom: 20px;
+      font-weight: 600;
+    }
+
+    .section-title {
+      font-size: clamp(2rem, 4vw, 3.5rem);
+      font-weight: 800;
+      letter-spacing: -0.04em;
+      line-height: 1.1;
+      color: var(--dark);
+      max-width: 600px;
+      margin-bottom: 70px;
+    }
+    .section-title span { color: var(--blue-light); }
+
+    .services-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 24px;
+    }
+
+    .service-card {
+      background: var(--white);
+      border: 1px solid var(--gray-mid);
+      border-radius: 32px;
+      padding: 40px 36px;
+      transition: transform 0.3s, border-color 0.3s, box-shadow 0.3s;
+      cursor: default;
+    }
+    .service-card:hover {
+      transform: translateY(-6px);
+      border-color: var(--blue-light);
+      box-shadow: 0 20px 60px rgba(37,99,235,0.1);
+    }
+
+    .service-icon {
+      width: 56px;
+      height: 56px;
+      background: var(--blue-soft);
+      border-radius: 18px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.75rem;
+      margin-bottom: 24px;
+    }
+
+    .service-card h3 {
+      font-size: 1.15rem;
+      font-weight: 700;
+      color: var(--dark);
+      margin-bottom: 12px;
+      letter-spacing: -0.02em;
+    }
+    .service-card p {
+      font-size: 0.875rem;
+      color: var(--gray-text);
+      line-height: 1.7;
+    }
+
+    /* ── WHY US ── */
+    .why {
+      padding: 140px 60px;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 80px;
+      align-items: center;
+      background: var(--white);
+    }
+
+    .why-visual {
+      position: relative;
+    }
+
+    .why-big-card {
+      background: var(--blue-vivid);
+      border-radius: 48px;
+      padding: 56px;
+      position: relative;
+      overflow: hidden;
+    }
+    .why-big-card::before {
+      content: '';
+      position: absolute;
+      top: -60px; right: -60px;
+      width: 200px; height: 200px;
+      border-radius: 50%;
+      background: rgba(255,255,255,0.08);
+    }
+    .why-big-card .big-num {
+      font-size: 5rem;
+      font-weight: 900;
+      color: var(--white);
+      letter-spacing: -0.05em;
+      line-height: 1;
+    }
+    .why-big-card .big-label {
+      font-size: 1.1rem;
+      color: rgba(255,255,255,0.8);
+      margin-top: 12px;
+      font-weight: 500;
+    }
+
+    .why-small-cards {
+      position: absolute;
+      bottom: -30px;
+      right: -30px;
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+    }
+
+    .mini-glass {
+      background: var(--white);
+      border: 1px solid var(--gray-mid);
+      box-shadow: 0 8px 32px rgba(37,99,235,0.1);
+      border-radius: 20px;
+      padding: 18px 24px;
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      min-width: 210px;
+    }
+    .mini-icon { font-size: 1.5rem; }
+    .mini-text .m-val {
+      font-size: 1.1rem;
+      font-weight: 700;
+      color: var(--dark);
+      letter-spacing: -0.03em;
+    }
+    .mini-text .m-sub {
+      font-size: 0.7rem;
+      color: var(--gray-text);
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+    }
+
+    .why-content .section-label { margin-bottom: 20px; }
+    .why-content .section-title { margin-bottom: 32px; }
+    .why-content > p {
+      font-size: 1rem;
+      color: var(--gray-text);
+      line-height: 1.75;
+      margin-bottom: 48px;
+    }
+
+    .check-list {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 18px;
+    }
+    .check-list li {
+      display: flex;
+      align-items: flex-start;
+      gap: 14px;
+      font-size: 0.9rem;
+      color: var(--dark-soft);
+      line-height: 1.5;
+    }
+    .check-list li::before {
+      content: '✓';
+      background: var(--blue-soft);
+      color: var(--blue-vivid);
+      width: 26px;
+      height: 26px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 0.75rem;
+      font-weight: 700;
+      flex-shrink: 0;
+      margin-top: 1px;
+    }
+
+    /* ── TESTIMONIALS ── */
+    .testimonials {
+      background: var(--blue-pale);
+      padding: 120px 60px;
+      border-radius: 80px;
+      margin: 0 20px;
+    }
+
+    .testimonials-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-end;
+      margin-bottom: 60px;
+    }
+
+    .testimonials-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 24px;
+    }
+
+    .testimonial-card {
+      background: var(--white);
+      border: 1px solid var(--gray-mid);
+      border-radius: 32px;
+      padding: 36px;
+      transition: transform 0.3s;
+      box-shadow: 0 4px 24px rgba(37,99,235,0.06);
+    }
+    .testimonial-card:hover { transform: translateY(-4px); }
+
+    .stars {
+      color: var(--blue-vivid);
+      font-size: 1rem;
+      margin-bottom: 20px;
+      letter-spacing: 2px;
+    }
+
+    .testimonial-card blockquote {
+      font-size: 0.925rem;
+      color: var(--dark-soft);
+      line-height: 1.75;
+      margin-bottom: 28px;
+      font-style: italic;
+    }
+
+    .testimonial-author {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+    }
+    .avatar {
+      width: 44px;
+      height: 44px;
+      border-radius: 50%;
+      background: var(--blue-vivid);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: 700;
+      font-size: 1rem;
+      color: var(--white);
+      flex-shrink: 0;
+      overflow: hidden;
+    }
+    .avatar img {
+      width: 100%; height: 100%;
+      object-fit: cover;
+      object-position: top;
+    }
+    .author-info .name {
+      font-size: 0.875rem;
+      font-weight: 600;
+      color: var(--dark);
+    }
+    .author-info .role {
+      font-size: 0.72rem;
+      color: var(--gray-text);
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      margin-top: 2px;
+    }
+
+    /* ── TEAM ── */
+    .team {
+      padding: 140px 60px;
+      background: var(--white);
+    }
+
+    .team-header {
+      text-align: center;
+      margin-bottom: 70px;
+    }
+
+    .team-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+      gap: 24px;
+    }
+
+    .team-card {
+      background: var(--gray-light);
+      border: 1px solid var(--gray-mid);
+      border-radius: 32px;
+      padding: 40px 32px;
+      text-align: center;
+      transition: transform 0.3s, border-color 0.3s, box-shadow 0.3s;
+    }
+    .team-card:hover {
+      transform: translateY(-6px);
+      border-color: var(--blue-light);
+      box-shadow: 0 16px 48px rgba(37,99,235,0.1);
+    }
+
+    .team-avatar {
+      width: 100px;
+      height: 100px;
+      border-radius: 50%;
+      background: var(--blue-soft);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 2rem;
+      margin: 0 auto 24px;
+      border: 3px solid var(--blue-mid);
+      overflow: hidden;
+    }
+    .team-avatar img {
+      width: 100%; height: 100%;
+      object-fit: cover;
+      object-position: top;
+    }
+
+    .team-card h4 {
+      font-size: 1.05rem;
+      font-weight: 700;
+      color: var(--dark);
+      margin-bottom: 6px;
+    }
+    .team-card .specialty {
+      font-size: 0.75rem;
+      color: var(--blue-vivid);
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      font-weight: 600;
+    }
+    .team-card .bio {
+      font-size: 0.82rem;
+      color: var(--gray-text);
+      margin-top: 14px;
+      line-height: 1.6;
+    }
+
+    /* ── CTA ── */
+    .cta-section {
+      background: var(--blue-vivid);
+      margin: 0 20px 40px;
+      border-radius: 80px;
+      padding: 120px 80px;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+    }
+    .cta-section::before {
+      content: '';
+      position: absolute;
+      top: -100px; left: -100px;
+      width: 400px; height: 400px;
+      border-radius: 50%;
+      background: rgba(255,255,255,0.06);
+    }
+    .cta-section::after {
+      content: '';
+      position: absolute;
+      bottom: -80px; right: -80px;
+      width: 300px; height: 300px;
+      border-radius: 50%;
+      background: rgba(255,255,255,0.05);
+    }
+
+    .cta-section h2 {
+      font-size: clamp(2.2rem, 5vw, 4rem);
+      font-weight: 900;
+      color: var(--white);
+      letter-spacing: -0.04em;
+      line-height: 1.1;
+      margin-bottom: 20px;
+      position: relative;
+      z-index: 1;
+    }
+
+    .cta-section p {
+      font-size: 1.05rem;
+      color: rgba(255,255,255,0.82);
+      max-width: 520px;
+      margin: 0 auto 48px;
+      line-height: 1.7;
+      position: relative;
+      z-index: 1;
+    }
+
+    .cta-actions {
+      display: flex;
+      gap: 16px;
+      justify-content: center;
+      flex-wrap: wrap;
+      position: relative;
+      z-index: 1;
+    }
+
+    .btn-white {
+      background: var(--white);
+      color: var(--blue-vivid);
+      border: none;
+      padding: 18px 44px;
+      border-radius: 999px;
+      font-size: 1rem;
+      font-weight: 700;
+      cursor: pointer;
+      transition: transform 0.2s, box-shadow 0.2s;
+      text-decoration: none;
+    }
+    .btn-white:hover { transform: scale(1.05); box-shadow: 0 12px 40px rgba(0,0,0,0.2); }
+    .btn-white:active { transform: scale(0.97); }
+
+    /* ── CONTACT ── */
+    .contact {
+      padding: 140px 60px 80px;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 80px;
+      align-items: start;
+      background: var(--white);
+    }
+
+    .contact-info .section-title { margin-bottom: 28px; }
+    .contact-info > p {
+      font-size: 0.95rem;
+      color: var(--gray-text);
+      line-height: 1.75;
+      margin-bottom: 48px;
+    }
+
+    .contact-items {
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+    }
+
+    .contact-item {
+      display: flex;
+      align-items: center;
+      gap: 18px;
+      padding: 20px 24px;
+      background: var(--gray-light);
+      border: 1px solid var(--gray-mid);
+      border-radius: 20px;
+    }
+    .contact-item .c-icon {
+      font-size: 1.4rem;
+      width: 44px;
+      height: 44px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: var(--blue-soft);
+      border-radius: 14px;
+      flex-shrink: 0;
+    }
+    .contact-item .c-val {
+      font-size: 0.9rem;
+      font-weight: 600;
+      color: var(--dark);
+    }
+    .contact-item .c-sub {
+      font-size: 0.72rem;
+      color: var(--gray-text);
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      margin-top: 2px;
+    }
+
+    .contact-form {
+      background: var(--gray-light);
+      border: 1px solid var(--gray-mid);
+      border-radius: 40px;
+      padding: 48px 44px;
+    }
+
+    .form-title {
+      font-size: 1.4rem;
+      font-weight: 700;
+      color: var(--dark);
+      margin-bottom: 32px;
+      letter-spacing: -0.03em;
+    }
+
+    .form-group {
+      margin-bottom: 20px;
+    }
+    .form-group label {
+      display: block;
+      font-size: 0.72rem;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      color: var(--gray-text);
+      margin-bottom: 8px;
+      font-weight: 600;
+    }
+    .form-group input,
+    .form-group select,
+    .form-group textarea {
+      width: 100%;
+      background: var(--white);
+      border: 1px solid var(--gray-mid);
+      border-radius: 16px;
+      padding: 15px 18px;
+      font-size: 0.9rem;
+      color: var(--dark);
+      font-family: 'Inter', sans-serif;
+      outline: none;
+      transition: border-color 0.2s;
+      resize: none;
+    }
+    .form-group input:focus,
+    .form-group select:focus,
+    .form-group textarea:focus {
+      border-color: var(--blue-vivid);
+      box-shadow: 0 0 0 3px rgba(37,99,235,0.08);
+    }
+    .form-group select option { background: var(--white); }
+
+    .form-row {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 16px;
+    }
+
+    .btn-form {
+      width: 100%;
+      background: var(--blue-vivid);
+      color: var(--white);
+      border: none;
+      padding: 18px;
+      border-radius: 999px;
+      font-size: 1rem;
+      font-weight: 700;
+      cursor: pointer;
+      transition: transform 0.2s, box-shadow 0.2s;
+      margin-top: 8px;
+    }
+    .btn-form:hover { transform: scale(1.02); box-shadow: 0 8px 32px rgba(37,99,235,0.35); }
+    .btn-form:active { transform: scale(0.98); }
+
+    /* ── FOOTER ── */
+    footer {
+      background: var(--dark);
+      border-top: 1px solid rgba(255,255,255,0.05);
+      padding: 60px 60px 40px;
+    }
+
+    .footer-top {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      padding-bottom: 48px;
+      border-bottom: 1px solid rgba(255,255,255,0.07);
+      gap: 40px;
+      flex-wrap: wrap;
+    }
+
+    .footer-brand .logo {
+      font-size: 1.4rem;
+      font-weight: 900;
+      color: var(--white);
+      margin-bottom: 12px;
+    }
+    .footer-brand .logo span { color: var(--blue-light); }
+    .footer-brand p {
+      font-size: 0.82rem;
+      color: rgba(255,255,255,0.42);
+      max-width: 280px;
+      line-height: 1.7;
+    }
+
+    .footer-cols {
+      display: flex;
+      gap: 60px;
+      flex-wrap: wrap;
+    }
+
+    .footer-col h5 {
+      font-size: 0.72rem;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      color: rgba(255,255,255,0.35);
+      margin-bottom: 18px;
+    }
+    .footer-col ul { list-style: none; }
+    .footer-col li { margin-bottom: 10px; }
+    .footer-col a {
+      text-decoration: none;
+      color: rgba(255,255,255,0.55);
+      font-size: 0.875rem;
+      transition: color 0.2s;
+    }
+    .footer-col a:hover { color: var(--white); }
+
+    .footer-bottom {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding-top: 32px;
+      flex-wrap: wrap;
+      gap: 16px;
+    }
+    .footer-bottom p {
+      font-size: 0.78rem;
+      color: rgba(255,255,255,0.25);
+    }
+    .footer-badges {
+      display: flex;
+      gap: 10px;
+    }
+    .f-badge {
+      background: rgba(255,255,255,0.07);
+      border: 1px solid rgba(255,255,255,0.1);
+      border-radius: 999px;
+      padding: 6px 16px;
+      font-size: 0.65rem;
+      color: rgba(255,255,255,0.45);
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+    }
+
+    /* ── VIDEO PRINCIPAL ── */
+    .video-section {
+      padding: 120px 60px;
+      background: var(--white);
+      text-align: center;
+    }
+    .video-section .section-label { text-align: center; }
+    .video-section .section-title {
+      max-width: 700px;
+      margin: 0 auto 60px;
+      text-align: center;
+    }
+    .video-wrapper {
+      position: relative;
+      max-width: 900px;
+      margin: 0 auto;
+      border-radius: 32px;
+      overflow: hidden;
+      box-shadow: 0 40px 100px rgba(37,99,235,0.18);
+      background: var(--dark);
+      aspect-ratio: 16/9;
+    }
+    .video-wrapper video,
+    .video-wrapper iframe {
+      width: 100%;
+      height: 100%;
+      display: block;
+      border: none;
+    }
+    .video-placeholder {
+      position: absolute;
+      inset: 0;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      background: linear-gradient(135deg, #1E293B, #0F172A);
+      cursor: pointer;
+      transition: opacity 0.3s;
+    }
+    .video-placeholder.hidden { opacity: 0; pointer-events: none; }
+    .video-placeholder img {
+      position: absolute;
+      inset: 0;
+      width: 100%; height: 100%;
+      object-fit: cover;
+      opacity: 0.45;
+    }
+    .play-btn {
+      position: relative;
+      z-index: 1;
+      width: 80px; height: 80px;
+      background: var(--white);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      box-shadow: 0 8px 40px rgba(0,0,0,0.3);
+      transition: transform 0.2s, box-shadow 0.2s;
+    }
+    .video-placeholder:hover .play-btn {
+      transform: scale(1.1);
+      box-shadow: 0 12px 50px rgba(0,0,0,0.4);
+    }
+    .play-btn svg { margin-left: 5px; }
+    .video-caption {
+      position: relative;
+      z-index: 1;
+      margin-top: 20px;
+      font-size: 0.9rem;
+      font-weight: 600;
+      color: var(--white);
+      letter-spacing: -0.01em;
+    }
+    .video-caption span {
+      display: block;
+      font-size: 0.72rem;
+      font-weight: 400;
+      color: rgba(255,255,255,0.55);
+      margin-top: 4px;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+    }
+
+    /* ── VÍDEOS DE PACIENTES ── */
+    .patient-videos {
+      background: var(--gray-light);
+      padding: 120px 60px;
+      border-radius: 80px;
+      margin: 0 20px 0;
+    }
+    .patient-videos .section-title { margin-bottom: 60px; }
+    .videos-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 28px;
+    }
+    .patient-video-card {
+      background: var(--white);
+      border: 1px solid var(--gray-mid);
+      border-radius: 28px;
+      overflow: hidden;
+      box-shadow: 0 4px 24px rgba(37,99,235,0.07);
+      transition: transform 0.3s, box-shadow 0.3s;
+    }
+    .patient-video-card:hover {
+      transform: translateY(-6px);
+      box-shadow: 0 20px 60px rgba(37,99,235,0.13);
+    }
+    .pv-thumb {
+      position: relative;
+      aspect-ratio: 16/9;
+      background: var(--dark);
+      cursor: pointer;
+      overflow: hidden;
+    }
+    .pv-thumb img {
+      width: 100%; height: 100%;
+      object-fit: cover;
+      transition: transform 0.4s;
+    }
+    .pv-thumb:hover img { transform: scale(1.04); }
+    .pv-thumb video {
+      width: 100%; height: 100%;
+      object-fit: cover;
+      display: none;
+    }
+    .pv-thumb video.playing { display: block; }
+    .pv-thumb img.hidden { display: none; }
+    .pv-overlay {
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(to top, rgba(0,0,0,0.45) 0%, transparent 60%);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: opacity 0.3s;
+    }
+    .pv-overlay.hidden { opacity: 0; pointer-events: none; }
+    .pv-play {
+      width: 56px; height: 56px;
+      background: rgba(255,255,255,0.92);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      box-shadow: 0 4px 20px rgba(0,0,0,0.3);
+      transition: transform 0.2s;
+    }
+    .pv-thumb:hover .pv-play { transform: scale(1.12); }
+    .pv-play svg { margin-left: 4px; }
+    .pv-tag {
+      position: absolute;
+      top: 14px; left: 14px;
+      background: var(--blue-vivid);
+      color: var(--white);
+      font-size: 0.62rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      padding: 5px 12px;
+      border-radius: 999px;
+    }
+    .pv-info {
+      padding: 24px 24px 28px;
+    }
+    .pv-info blockquote {
+      font-size: 0.9rem;
+      color: var(--dark-soft);
+      line-height: 1.7;
+      font-style: italic;
+      margin-bottom: 18px;
+    }
+    .pv-author {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+    .pv-avatar {
+      width: 40px; height: 40px;
+      border-radius: 50%;
+      background: var(--blue-vivid);
+      color: var(--white);
+      font-weight: 700;
+      font-size: 0.9rem;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+    }
+    .pv-name {
+      font-size: 0.85rem;
+      font-weight: 600;
+      color: var(--dark);
+    }
+    .pv-role {
+      font-size: 0.68rem;
+      color: var(--gray-text);
+      text-transform: uppercase;
+      letter-spacing: 0.07em;
+      margin-top: 2px;
+    }
+
+    /* ── IMAGE BANNER ── */
+    .image-banner {
+      position: relative;
+      margin: 40px 20px;
+      border-radius: 60px;
+      overflow: hidden;
+      min-height: 480px;
+      display: flex;
+      align-items: center;
+    }
+    .image-banner img.banner-bg {
+      position: absolute;
+      inset: 0;
+      width: 100%; height: 100%;
+      object-fit: cover;
+      object-position: center;
+    }
+    .image-banner::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(120deg, rgba(29,78,216,0.88) 0%, rgba(37,99,235,0.65) 55%, rgba(37,99,235,0.35) 100%);
+    }
+    .banner-content {
+      position: relative;
+      z-index: 1;
+      padding: 80px;
+      max-width: 640px;
+    }
+    .banner-content h2 {
+      font-size: clamp(2rem, 4vw, 3.2rem);
+      font-weight: 900;
+      color: var(--white);
+      letter-spacing: -0.04em;
+      line-height: 1.1;
+      margin-bottom: 20px;
+    }
+    .banner-content p {
+      font-size: 1.05rem;
+      color: rgba(255,255,255,0.85);
+      line-height: 1.7;
+      margin-bottom: 40px;
+    }
+    .banner-actions {
+      display: flex;
+      gap: 16px;
+      flex-wrap: wrap;
+    }
+
+    /* ── ANIMATIONS ── */
+    .fade-up {
+      opacity: 0;
+      transform: translateY(40px);
+      transition: opacity 0.7s cubic-bezier(0.22, 1, 0.36, 1), transform 0.7s cubic-bezier(0.22, 1, 0.36, 1);
+    }
+    .fade-up.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    /* ── RESPONSIVE ── */
+    @media (max-width: 900px) {
+      nav { padding: 18px 28px; }
+      .nav-links { display: none; }
+      .hero { padding: 120px 28px 100px; border-radius: 0 0 60px 20px; }
+      .hero-float { display: none; }
+      .services { padding: 80px 28px; margin: -20px 10px 0; border-radius: 40px; }
+      .why { grid-template-columns: 1fr; padding: 80px 28px; gap: 48px; }
+      .why-visual { display: none; }
+      .testimonials { padding: 80px 28px; margin: 0 10px; border-radius: 40px; }
+      .testimonials-header { flex-direction: column; align-items: flex-start; gap: 24px; }
+      .team { padding: 80px 28px; }
+      .video-section { padding: 80px 28px; }
+      .patient-videos { padding: 80px 28px; margin: 0 10px; border-radius: 40px; }
+      .image-banner { margin: 20px 10px; border-radius: 40px; min-height: 360px; }
+      .banner-content { padding: 48px 32px; }
+      .cta-section { padding: 80px 28px; margin: 0 10px 30px; border-radius: 40px; }
+      .contact { grid-template-columns: 1fr; padding: 80px 28px; gap: 48px; }
+      footer { padding: 48px 28px 32px; }
+      .footer-top { flex-direction: column; }
+      .form-row { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- ── NAV ── -->
+<nav>
+  <div class="nav-logo"><img src="imagens/logo.png" alt="Ge Corp" style="height:100px;width:auto;display:block;" /></div>
+  <ul class="nav-links">
+    <li><a href="#servicos">Especialidades</a></li>
+    <li><a href="#sobre">Sobre</a></li>
+    <li><a href="#equipe">Equipe</a></li>
+    <li><a href="#contato">Contato</a></li>
+  </ul>
+  <button class="nav-cta" onclick="document.getElementById('contato').scrollIntoView({behavior:'smooth'})">
+    Agendar Atendimento
+  </button>
+</nav>
+
+<!-- ── HERO ── -->
+<section class="hero">
+  <div class="hero-badge">
+    <span class="dot"></span>
+    Fisioterapia Domiciliar — Joinville e Região
+  </div>
+  <h1>Cuidamos da sua saúde <em>na sua casa</em></h1>
+  <p>Cuidamos da sua saúde com conforto, atenção e atendimento direto na sua casa, com foco na sua recuperação e qualidade de vida.</p>
+  <div class="hero-actions">
+    <a href="#contato" class="btn-primary">Agendar Atendimento</a>
+    <a href="#servicos" class="btn-outline">Ver Especialidades</a>
+  </div>
+
+  <div class="hero-float">
+    <div class="glass-card">
+      <div class="label">Atendimentos realizados</div>
+      <div class="value">1.000+</div>
+      <div class="sub">em Joinville e região</div>
+      <div class="pill">↑ 98% satisfação</div>
+    </div>
+    <div class="glass-card">
+      <div class="label">Conforto do paciente</div>
+      <div class="value">100%</div>
+      <div class="sub">na comodidade do seu lar</div>
+    </div>
+  </div>
+</section>
+
+<!-- ── TICKER ── -->
+<div class="ticker-section">
+  <div class="ticker-track" id="ticker">
+    <div class="ticker-item"><span class="t-num">5.000+</span><span class="t-label">Atendimentos Realizados</span></div>
+    <div class="ticker-divider">·</div>
+    <div class="ticker-item"><span class="t-num">98%</span><span class="t-label">Índice de Satisfação</span></div>
+    <div class="ticker-divider">·</div>
+    <div class="ticker-item"><span class="t-num">4</span><span class="t-label">Especialidades</span></div>
+    <div class="ticker-divider">·</div>
+    <div class="ticker-item"><span class="t-num">100%</span><span class="t-label">Atendimento Domiciliar</span></div>
+    <div class="ticker-divider">·</div>
+    <div class="ticker-item"><span class="t-num">Joinville</span><span class="t-label">e Região</span></div>
+    <div class="ticker-divider">·</div>
+    <!-- duplicado para efeito loop -->
+    <div class="ticker-item"><span class="t-num">5.000+</span><span class="t-label">Atendimentos Realizados</span></div>
+    <div class="ticker-divider">·</div>
+    <div class="ticker-item"><span class="t-num">98%</span><span class="t-label">Índice de Satisfação</span></div>
+    <div class="ticker-divider">·</div>
+    <div class="ticker-item"><span class="t-num">4</span><span class="t-label">Especialidades</span></div>
+    <div class="ticker-divider">·</div>
+    <div class="ticker-item"><span class="t-num">100%</span><span class="t-label">Atendimento Domiciliar</span></div>
+    <div class="ticker-divider">·</div>
+    <div class="ticker-item"><span class="t-num">Joinville</span><span class="t-label">e Região</span></div>
+    <div class="ticker-divider">·</div>
+  </div>
+</div>
+
+<!-- ── VIDEO PRINCIPAL ── -->
+<section class="video-section">
+  <p class="section-label">Conheça nosso trabalho</p>
+  <h2 class="section-title">Veja como <span>cuidamos dos nossos pacientes</span></h2>
+  <div class="video-wrapper fade-up">
+    <!-- Substitua o src abaixo pelo caminho do seu vídeo: imagens/video-institucional.mp4 -->
+    <!-- Ou use um embed do YouTube: <iframe src="https://www.youtube.com/embed/SEU_ID" allowfullscreen></iframe> -->
+    <video id="main-video" controls preload="none" poster="https://images.unsplash.com/photo-1530026405186-ed1f139313f3?w=900&q=80">
+      <source src="imagens/video1.mp4" type="video/mp4" />
+      Seu navegador não suporta vídeo HTML5.
+    </video>
+    <div class="video-placeholder" id="main-placeholder" onclick="playMainVideo()">
+      <img src="imagens/fundo2.png" alt="Vídeo institucional Ge Corp" />
+      <div class="play-btn">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
+          <path d="M8 5v14l11-7L8 5z" fill="#2563EB"/>
+        </svg>
+      </div>
+      <div class="video-caption">
+        Conheça a Ge Corp — Fisioterapia Domiciliar
+        <span>Atendimento domiciliar em Joinville</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ── SERVICES ── -->
+<section class="services" id="servicos">
+  <p class="section-label">Nossas Especialidades</p>
+  <h2 class="section-title">Tratamento especializado <span>direto na sua casa</span></h2>
+  <div class="services-grid">
+    <div class="service-card fade-up">
+      <div class="service-icon">👴</div>
+      <h3>Idoso</h3>
+      <p>Fisioterapia especializada para a terceira idade com foco em mobilidade, autonomia e qualidade de vida, com o cuidado e atenção que os idosos merecem.</p>
+    </div>
+    <div class="service-card fade-up">
+      <div class="service-icon">🦴</div>
+      <h3>Ortopedia</h3>
+      <p>Reabilitação ortopédica domiciliar para lesões musculoesqueléticas, dores articulares, pós-fraturas e recuperação de mobilidade com protocolos individualizados.</p>
+    </div>
+    <div class="service-card fade-up">
+      <div class="service-icon">🧠</div>
+      <h3>Neurologia</h3>
+      <p>Tratamento fisioterapêutico para condições neurológicas como AVC, Parkinson, esclerose múltipla e lesões medulares, promovendo recuperação funcional progressiva.</p>
+    </div>
+    <div class="service-card fade-up">
+      <div class="service-icon">👶</div>
+      <h3>Pediatria</h3>
+      <p>Fisioterapia pediátrica no ambiente familiar da criança, garantindo maior conforto, adesão ao tratamento e evolução no desenvolvimento motor e funcional.</p>
+    </div>
+    <div class="service-card fade-up">
+      <div class="service-icon">🏥</div>
+      <h3>Pós-Operatório</h3>
+      <p>Reabilitação pós-cirúrgica especializada em casa, com acompanhamento próximo e seguro após cirurgias ortopédicas, cardíacas, abdominais e outras intervenções.</p>
+    </div>
+    <div class="service-card fade-up">
+      <div class="service-icon">❤️</div>
+      <h3>Acompanhamento Contínuo</h3>
+      <p>Monitoramento constante da evolução do paciente, adaptação do plano terapêutico e suporte à família para garantir os melhores resultados no conforto do lar.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ── WHY ── -->
+<section class="why" id="sobre">
+  <div class="why-visual">
+    <div class="why-big-card">
+      <div class="big-num">100%</div>
+      <div class="big-label">Atendimento domiciliar em Joinville e região</div>
+    </div>
+    <div class="why-small-cards">
+      <div class="mini-glass">
+        <div class="mini-icon">🏆</div>
+        <div class="mini-text">
+          <div class="m-val">Alta Satisfação</div>
+          <div class="m-sub">Avaliação dos pacientes</div>
+        </div>
+      </div>
+      <div class="mini-glass">
+        <div class="mini-icon">⭐</div>
+        <div class="mini-text">
+          <div class="m-val">4.9 / 5.0</div>
+          <div class="m-sub">Nota média dos atendimentos</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="why-content">
+    <p class="section-label">Por que a Ge Corp</p>
+    <h2 class="section-title">Sua recuperação com <span>conforto e dedicação</span></h2>
+    <p>Oferecemos fisioterapia domiciliar de alta qualidade em Joinville e região, com fisioterapeutas especializados que vão até a sua casa para garantir um atendimento personalizado, humanizado e focado na sua recuperação.</p>
+    <ul class="check-list">
+      <li>Atendimento 100% domiciliar — você não precisa sair de casa</li>
+      <li>Fisioterapeutas especializados em Idosos, Ortopedia, Neurologia e Pediatria</li>
+      <li>Reabilitação pós-operatória segura e acompanhada no seu lar</li>
+      <li>Plano de tratamento individualizado e acompanhamento contínuo da evolução</li>
+      <li>Atendimento em Joinville e toda a região com horários flexíveis</li>
+    </ul>
+  </div>
+</section>
+
+<!-- ── TESTIMONIALS (desativado) ── -->
+<template id="tpl-testimonials">
+<section class="testimonials">
+  <div class="testimonials-header">
+    <div>
+      <p class="section-label">Depoimentos</p>
+      <h2 class="section-title" style="margin-bottom: 0;">O que dizem <span>nossos pacientes</span></h2>
+    </div>
+    <div style="display:flex;flex-direction:column;align-items:flex-end;gap:6px;">
+      <div style="font-size:2.5rem;font-weight:900;color:var(--blue-vivid);letter-spacing:-0.05em">4.9</div>
+      <div style="font-size:0.7rem;color:var(--gray-text);text-transform:uppercase;letter-spacing:0.1em">Média geral</div>
+    </div>
+  </div>
+  <div class="testimonials-grid">
+    <div class="testimonial-card fade-up">
+      <div class="stars">★★★★★</div>
+      <blockquote>"Minha mãe de 80 anos teve um AVC e a fisioterapeuta veio até nossa casa. Em poucos meses ela já conseguia caminhar com apoio. Atendimento incrível, atencioso e muito profissional."</blockquote>
+      <div class="testimonial-author">
+        <div class="avatar"><img src="https://images.unsplash.com/photo-1508214751196-bcfd4ca60f91?w=100&q=80" alt="Maria R." /></div>
+        <div class="author-info"><div class="name">Maria R.</div><div class="role">Familiar de paciente</div></div>
+      </div>
+    </div>
+    <div class="testimonial-card fade-up">
+      <div class="stars">★★★★★</div>
+      <blockquote>"Fiz cirurgia no joelho e a recuperação em casa foi muito melhor do que esperava. O fisioterapeuta veio todos os dias na primeira semana. Recuperei muito mais rápido!"</blockquote>
+      <div class="testimonial-author">
+        <div class="avatar"><img src="https://images.unsplash.com/photo-1552058544-f2b08422138a?w=100&q=80" alt="João S." /></div>
+        <div class="author-info"><div class="name">João S.</div><div class="role">Paciente pós-operatório</div></div>
+      </div>
+    </div>
+    <div class="testimonial-card fade-up">
+      <div class="stars">★★★★★</div>
+      <blockquote>"Meu filho de 4 anos tem atraso motor e o atendimento domiciliar foi fundamental. Ele se sente muito mais à vontade em casa e a evolução foi surpreendente. Recomendo demais!"</blockquote>
+      <div class="testimonial-author">
+        <div class="avatar"><img src="https://images.unsplash.com/photo-1544005313-94ddf0286df2?w=100&q=80" alt="Ana F." /></div>
+        <div class="author-info"><div class="name">Ana F.</div><div class="role">Mãe de paciente pediátrico</div></div>
+      </div>
+    </div>
+  </div>
+</section>
+</template>
+
+<!-- ── VÍDEOS DE PACIENTES (desativado) ── -->
+<template id="tpl-patient-videos">
+<section class="patient-videos">
+  <p class="section-label">Resultados Reais</p>
+  <h2 class="section-title">Histórias de <span>recuperação e vida</span></h2>
+  <div class="videos-grid">
+    <div class="patient-video-card fade-up">
+      <div class="pv-thumb" onclick="togglePatientVideo(this)">
+        <img src="https://images.unsplash.com/photo-1559757148-5c350d0d3c56?w=600&q=80" alt="Depoimento paciente 1" />
+        <video preload="none" loop>
+          <source src="imagens/paciente1.mp4" type="video/mp4" />
+        </video>
+        <div class="pv-overlay"><div class="pv-play"><svg width="20" height="20" viewBox="0 0 24 24" fill="none"><path d="M8 5v14l11-7L8 5z" fill="#2563EB"/></svg></div></div>
+        <div class="pv-tag">iDOSO</div>
+      </div>
+      <div class="pv-info">
+        <blockquote>"Em 3 meses voltei a caminhar sem apoio. O atendimento em casa fez toda a diferença na minha recuperação."</blockquote>
+        <div class="pv-author"><div class="pv-avatar">MR</div><div><div class="pv-name">Maria R., 78 anos</div><div class="pv-role">Paciente iDOSO — Joinville</div></div></div>
+      </div>
+    </div>
+    <div class="patient-video-card fade-up">
+      <div class="pv-thumb" onclick="togglePatientVideo(this)">
+        <img src="https://images.unsplash.com/photo-1588776814546-daab30f310ce?w=600&q=80" alt="Depoimento paciente 2" />
+        <video preload="none" loop>
+          <source src="imagens/paciente2.mp4" type="video/mp4" />
+        </video>
+        <div class="pv-overlay"><div class="pv-play"><svg width="20" height="20" viewBox="0 0 24 24" fill="none"><path d="M8 5v14l11-7L8 5z" fill="#2563EB"/></svg></div></div>
+        <div class="pv-tag">Pós-Operatório</div>
+      </div>
+      <div class="pv-info">
+        <blockquote>"Fiz cirurgia no joelho e o fisioterapeuta veio até minha casa. Recuperei muito mais rápido do que esperava!"</blockquote>
+        <div class="pv-author"><div class="pv-avatar">JS</div><div><div class="pv-name">João S., 62 anos</div><div class="pv-role">Paciente Pós-Op — Joinville</div></div></div>
+      </div>
+    </div>
+    <div class="patient-video-card fade-up">
+      <div class="pv-thumb" onclick="togglePatientVideo(this)">
+        <img src="https://images.unsplash.com/photo-1485827404703-89b55fcc595e?w=600&q=80" alt="Depoimento paciente 3" />
+        <video preload="none" loop>
+          <source src="imagens/paciente3.mp4" type="video/mp4" />
+        </video>
+        <div class="pv-overlay"><div class="pv-play"><svg width="20" height="20" viewBox="0 0 24 24" fill="none"><path d="M8 5v14l11-7L8 5z" fill="#2563EB"/></svg></div></div>
+        <div class="pv-tag">Neurologia</div>
+      </div>
+      <div class="pv-info">
+        <blockquote>"Após o AVC, achei que não voltaria a andar. A fisioterapia domiciliar me devolveu a independência e a esperança."</blockquote>
+        <div class="pv-author"><div class="pv-avatar">AF</div><div><div class="pv-name">Antonio F., 71 anos</div><div class="pv-role">Paciente Neuro — Joinville</div></div></div>
+      </div>
+    </div>
+  </div>
+</section>
+</template>
+
+<!-- ── TEAM ── -->
+<section class="team" id="equipe">
+  <div class="team-header">
+    <p class="section-label">Nossa Equipe</p>
+    <h2 class="section-title" style="max-width:none;text-align:center;">Fisioterapeutas dedicados <span>ao seu bem-estar</span></h2>
+  </div>
+  <div class="team-grid">
+    <div class="team-card fade-up">
+      <div class="team-avatar"></div>
+      <h4>Nome do Profissional</h4>
+      <div class="specialty">Especialidade</div>
+      <p class="bio">CREFITO · Descrição breve do profissional.</p>
+    </div>
+    <div class="team-card fade-up">
+      <div class="team-avatar"></div>
+      <h4>Nome do Profissional</h4>
+      <div class="specialty">Especialidade</div>
+      <p class="bio">CREFITO · Descrição breve do profissional.</p>
+    </div>
+    <div class="team-card fade-up">
+      <div class="team-avatar"></div>
+      <h4>Nome do Profissional</h4>
+      <div class="specialty">Especialidade</div>
+      <p class="bio">CREFITO · Descrição breve do profissional.</p>
+    </div>
+    <div class="team-card fade-up">
+      <div class="team-avatar"></div>
+      <h4>Nome do Profissional</h4>
+      <div class="specialty">Especialidade</div>
+      <p class="bio">CREFITO · Descrição breve do profissional.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ── IMAGE BANNER ── -->
+<div class="image-banner">
+  <!-- Substitua pelo caminho da sua imagem: imagens/banner-bg.jpg -->
+  <img class="banner-bg" src="imagens/fundo3.avif" alt="Fisioterapeuta atendendo paciente em casa" />
+  <div class="banner-content">
+    <h2>Atendimento onde você mais precisa: em casa</h2>
+    <p>Nossos fisioterapeutas se deslocam até você em Joinville e região. Sem filas, sem deslocamento, sem estresse — só cuidado de verdade.</p>
+    <div class="banner-actions">
+      <a href="#contato" class="btn-white">Solicitar Avaliação</a>
+      <a href="https://wa.me/5547000000000" class="btn-outline">💬 Falar no WhatsApp</a>
+    </div>
+  </div>
+</div>
+
+<!-- ── CTA ── -->
+<section class="cta-section">
+  <h2>Agende seu atendimento hoje mesmo</h2>
+  <p>Nossa equipe de fisioterapeutas está pronta para ir até a sua casa. Cuidamos da sua saúde com conforto, atenção e dedicação.</p>
+  <div class="cta-actions">
+    <a href="#contato" class="btn-white">Agendar Agora</a>
+    <a href="https://wa.me/5547000000000" class="btn-outline">💬 WhatsApp</a>
+  </div>
+</section>
+
+<!-- ── CONTACT (desativado) ── -->
+<template id="tpl-contact">
+<section class="contact" id="contato">
+  <div class="contact-info">
+    <p class="section-label">Fale Conosco</p>
+    <h2 class="section-title">Estamos prontos <span>para atender você</span></h2>
+    <p>Agende seu atendimento domiciliar, tire dúvidas sobre as especialidades ou solicite uma avaliação. Respondemos rapidamente pelo WhatsApp.</p>
+    <div class="contact-items">
+      <div class="contact-item">
+        <div class="c-icon">📍</div>
+        <div>
+          <div class="c-val">Joinville — SC</div>
+          <div class="c-sub">Joinville e toda a região</div>
+        </div>
+      </div>
+      <div class="contact-item">
+        <div class="c-icon">📞</div>
+        <div>
+          <div class="c-val">(47) 9 0000-0000</div>
+          <div class="c-sub">Segunda a Sábado, 7h–20h</div>
+        </div>
+      </div>
+      <div class="contact-item">
+        <div class="c-icon">💬</div>
+        <div>
+          <div class="c-val">WhatsApp: (47) 9 0000-0000</div>
+          <div class="c-sub">Atendimento rápido</div>
+        </div>
+      </div>
+      <div class="contact-item">
+        <div class="c-icon">✉️</div>
+        <div>
+          <div class="c-val">contato@gecorp.com.br</div>
+          <div class="c-sub">Respondemos em até 2h</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="contact-form">
+    <div class="form-title">Solicitar Atendimento</div>
+    <div class="form-row">
+      <div class="form-group">
+        <label>Nome do Paciente</label>
+        <input type="text" placeholder="Maria da Silva" />
+      </div>
+      <div class="form-group">
+        <label>Idade</label>
+        <input type="number" placeholder="65" min="0" max="120" />
+      </div>
+    </div>
+    <div class="form-row">
+      <div class="form-group">
+        <label>Telefone / WhatsApp</label>
+        <input type="tel" placeholder="(47) 9 0000-0000" />
+      </div>
+      <div class="form-group">
+        <label>E-mail</label>
+        <input type="email" placeholder="maria@email.com" />
+      </div>
+    </div>
+    <div class="form-group">
+      <label>Especialidade Desejada</label>
+      <select>
+        <option value="">Selecione...</option>
+        <option>Idoso — Fisioterapia Geriátrica</option>
+        <option>Ortopedia</option>
+        <option>Neurologia</option>
+        <option>Pediatria</option>
+        <option>Pós-Operatório</option>
+      </select>
+    </div>
+    <div class="form-group">
+      <label>Endereço para atendimento</label>
+      <input type="text" placeholder="Rua, número, bairro — Joinville/SC" />
+    </div>
+    <div class="form-group">
+      <label>Mensagem (opcional)</label>
+      <textarea rows="3" placeholder="Descreva brevemente a situação do paciente..."></textarea>
+    </div>
+    <button class="btn-form" onclick="alert('Solicitação recebida! Entraremos em contato em breve pelo WhatsApp.')">
+      Enviar Solicitação →
+    </button>
+  </div>
+</section>
+</template>
+
+<!-- ── FOOTER ── -->
+<footer>
+  <div class="footer-top">
+    <div class="footer-brand">
+      <div class="logo">Ge<span>Corp</span></div>
+      <p>Fisioterapia domiciliar especializada em Joinville e região. Idoso, Ortopedia, Neurologia, Pediatria e Pós-Operatório — cuidado de verdade na sua casa.</p>
+    </div>
+    <div class="footer-cols">
+      <div class="footer-col">
+        <h5>Especialidades</h5>
+        <ul>
+          <li><a href="#">Idoso — Geriatria</a></li>
+          <li><a href="#">Ortopedia</a></li>
+          <li><a href="#">Neurologia</a></li>
+          <li><a href="#">Pediatria</a></li>
+          <li><a href="#">Pós-Operatório</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h5>A Clínica</h5>
+        <ul>
+          <li><a href="#">Sobre Nós</a></li>
+          <li><a href="#">Nossa Equipe</a></li>
+          <li><a href="#">Como Funciona</a></li>
+          <li><a href="#">Área de Atendimento</a></li>
+          <li><a href="#">Trabalhe Conosco</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h5>Atendimento</h5>
+        <ul>
+          <li><a href="#">Joinville — SC</a></li>
+          <li><a href="#">Região Metropolitana</a></li>
+          <li><a href="#">WhatsApp</a></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <p>© 2026 Ge Corp — Fisioterapia Domiciliar. Todos os direitos reservados.</p>
+    <div class="footer-badges">
+      <span class="f-badge">CREFITO Registrado</span>
+      <span class="f-badge">Joinville — SC</span>
+      <span class="f-badge">LGPD</span>
+    </div>
+  </div>
+</footer>
+
+<script>
+  // Vídeo principal
+  function playMainVideo() {
+    const video = document.getElementById('main-video');
+    const placeholder = document.getElementById('main-placeholder');
+    placeholder.classList.add('hidden');
+    video.play();
+  }
+
+  // Vídeos de pacientes — clique para play/pause
+  function togglePatientVideo(thumb) {
+    const video = thumb.querySelector('video');
+    const img = thumb.querySelector('img');
+    const overlay = thumb.querySelector('.pv-overlay');
+
+    if (video.classList.contains('playing')) {
+      video.pause();
+      video.classList.remove('playing');
+      img.classList.remove('hidden');
+      overlay.classList.remove('hidden');
+    } else {
+      // Pausa todos os outros vídeos de pacientes
+      document.querySelectorAll('.pv-thumb video.playing').forEach(v => {
+        v.pause();
+        v.classList.remove('playing');
+        v.closest('.pv-thumb').querySelector('img').classList.remove('hidden');
+        v.closest('.pv-thumb').querySelector('.pv-overlay').classList.remove('hidden');
+      });
+      video.classList.add('playing');
+      img.classList.add('hidden');
+      overlay.classList.add('hidden');
+      video.play();
+    }
+  }
+
+  // Intersection Observer para fade-up
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach((entry, i) => {
+      if (entry.isIntersecting) {
+        setTimeout(() => {
+          entry.target.classList.add('visible');
+        }, i * 80);
+        observer.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.1 });
+
+  document.querySelectorAll('.fade-up').forEach(el => observer.observe(el));
+
+  // Nav scroll effect
+  window.addEventListener('scroll', () => {
+    const nav = document.querySelector('nav');
+    if (window.scrollY > 20) {
+      nav.style.background = 'rgba(255,255,255,0.98)';
+      nav.style.boxShadow = '0 2px 20px rgba(37,99,235,0.08)';
+    } else {
+      nav.style.background = 'rgba(255,255,255,0.85)';
+      nav.style.boxShadow = 'none';
+    }
+  });
+
+  // Ticker duplicate for seamless loop
+  const ticker = document.getElementById('ticker');
+  ticker.innerHTML += ticker.innerHTML;
+</script>
+
+</body>
+</html>
