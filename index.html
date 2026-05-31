@@ -1254,6 +1254,7 @@
       background: var(--dark);
       overflow: hidden;
       width: 100%;
+      max-height: 550px;
     }
     .exp-video-overlay {
       position: absolute;
@@ -1437,7 +1438,7 @@
   <p class="section-label">Conheça Melhor</p>
   <h2 class="section-title">Área de <span>Vídeos</span></h2>
   <div class="videos-explanatory-grid">
-    <div class="explanatory-video-card fade-up">
+    <div class="explanatory-video-card fade-up" style="height:fit-content;">
       <div class="exp-video-wrapper" onclick="toggleExplanatoryVideo(1)">
         <video id="exp-video-1" preload="metadata" style="width:100%;height:100%;object-fit:cover;display:block;cursor:pointer;" ontimeupdate="lockVideoCover(1)">
           <source src="imagens/video_1.MOV" type="video/mp4" />
@@ -1449,19 +1450,11 @@
           </button>
         </div>
       </div>
-      <div class="exp-card-content">
-      
-        
-      </div>
     </div>
 
-    <div class="explanatory-video-card fade-up">
-      <div class="exp-video-wrapper" style="position: relative;">
-        <iframe id="exp-video-2" style="position:absolute;top:0;left:0;width:100%;height:100%;border:none;" src="https://www.youtube.com/embed/kC3s_1Se4bU?autoplay=0" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
-      </div>
-      <div class="exp-card-content">
-        <h3>Vídeo Explicativo 2</h3>
-        <p>Conheça nossa equipe de especialistas e como eles preparam um plano de tratamento personalizado para você.</p>
+    <div class="explanatory-video-card fade-up" style="height:fit-content;">
+      <div class="exp-video-wrapper">
+        <iframe id="exp-video-2" style="width:100%;height:100%;border:none;display:block;" src="https://www.youtube.com/embed/kC3s_1Se4bU?autoplay=0" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
       </div>
     </div>
   </div>
