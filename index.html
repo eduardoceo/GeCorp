@@ -1453,8 +1453,58 @@
     </div>
 
     <div class="explanatory-video-card fade-up" style="height:fit-content;">
-      <div class="exp-video-wrapper">
-        <iframe id="exp-video-2" style="width:100%;height:100%;border:none;display:block;" src="https://www.youtube.com/embed/kC3s_1Se4bU?autoplay=0" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+      <div class="exp-video-wrapper" onclick="toggleExplanatoryVideo(2)">
+        <video id="exp-video-2" preload="metadata" style="width:100%;height:100%;object-fit:cover;display:block;cursor:pointer;" ontimeupdate="lockVideoCover(2)">
+          <source src="imagens/video_2.MOV" type="video/mp4" />
+          Seu navegador não suporta vídeos HTML5.
+        </video>
+        <div class="exp-video-overlay" id="overlay-2">
+          <button class="exp-control-btn" id="btn-play-2">
+            <svg width="32" height="32" viewBox="0 0 24 24" fill="none"><path d="M8 5v14l11-7L8 5z" fill="#FFFFFF"/></svg>
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <div class="explanatory-video-card fade-up" style="height:fit-content;">
+      <div class="exp-video-wrapper" onclick="toggleExplanatoryVideo(3)">
+        <video id="exp-video-3" preload="metadata" style="width:100%;height:100%;object-fit:cover;display:block;cursor:pointer;" ontimeupdate="lockVideoCover(3)">
+          <source src="imagens/videos_3.MOV" type="video/mp4" />
+          Seu navegador não suporta vídeos HTML5.
+        </video>
+        <div class="exp-video-overlay" id="overlay-3">
+          <button class="exp-control-btn" id="btn-play-3">
+            <svg width="32" height="32" viewBox="0 0 24 24" fill="none"><path d="M8 5v14l11-7L8 5z" fill="#FFFFFF"/></svg>
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <div class="explanatory-video-card fade-up" style="height:fit-content;">
+      <div class="exp-video-wrapper" onclick="toggleExplanatoryVideo(4)">
+        <video id="exp-video-4" preload="metadata" style="width:100%;height:100%;object-fit:cover;display:block;cursor:pointer;" ontimeupdate="lockVideoCover(4)">
+          <source src="imagens/videos_4.MOV" type="video/mp4" />
+          Seu navegador não suporta vídeos HTML5.
+        </video>
+        <div class="exp-video-overlay" id="overlay-4">
+          <button class="exp-control-btn" id="btn-play-4">
+            <svg width="32" height="32" viewBox="0 0 24 24" fill="none"><path d="M8 5v14l11-7L8 5z" fill="#FFFFFF"/></svg>
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <div class="explanatory-video-card fade-up" style="height:fit-content;">
+      <div class="exp-video-wrapper" onclick="toggleExplanatoryVideo(5)">
+        <video id="exp-video-5" preload="metadata" style="width:100%;height:100%;object-fit:cover;display:block;cursor:pointer;" ontimeupdate="lockVideoCover(5)">
+          <source src="imagens/video_5.MOV" type="video/mp4" />
+          Seu navegador não suporta vídeos HTML5.
+        </video>
+        <div class="exp-video-overlay" id="overlay-5">
+          <button class="exp-control-btn" id="btn-play-5">
+            <svg width="32" height="32" viewBox="0 0 24 24" fill="none"><path d="M8 5v14l11-7L8 5z" fill="#FFFFFF"/></svg>
+          </button>
+        </div>
       </div>
     </div>
   </div>
@@ -1910,7 +1960,7 @@
 
 <script>
   const videoCoverTime = 1;
-  const videoStates = { 1: { isCover: true }, 2: { isCover: true } };
+  const videoStates = { 1: { isCover: true }, 2: { isCover: true }, 3: { isCover: true }, 4: { isCover: true }, 5: { isCover: true } };
 
   // Mantém o vídeo na capa (primeiros 1s) quando não está em play
   function lockVideoCover(videoNum) {
@@ -1945,11 +1995,13 @@
 
   // Inicializa os vídeos na capa (sem som)
   window.addEventListener('load', () => {
-    [1, 2].forEach(num => {
+    [1, 2, 3, 4, 5].forEach(num => {
       const video = document.getElementById(`exp-video-${num}`);
-      video.muted = true;
-      video.currentTime = videoCoverTime;
-      video.pause();
+      if (video) {
+        video.muted = true;
+        video.currentTime = videoCoverTime;
+        video.pause();
+      }
     });
   });
 
